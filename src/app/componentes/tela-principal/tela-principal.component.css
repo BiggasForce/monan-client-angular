@@ -1,0 +1,235 @@
+/*//////////////////////////////////////////////////////////////////
+[ FONT ]*/
+
+@font-face {
+    font-family: Poppins-Regular;
+    src: url('../../../assets/fonts/poppins/Poppins-Regular.ttf');
+}
+
+@font-face {
+    font-family: Poppins-Bold;
+    src: url('../../../assets/fonts/poppins/Poppins-Bold.ttf');
+}
+
+@font-face {
+    font-family: Poppins-Medium;
+    src: url('../../../assets/fonts/poppins/Poppins-Medium.ttf');
+}
+
+@font-face {
+    font-family: Montserrat-Bold;
+    src: url('../../../assets/fonts/montserrat/Montserrat-Bold.ttf');
+}
+body {
+    background-color: #000;
+    color: #fff;
+    margin: 0; 
+    font-family: 'Poppins-Bold', sans-serif; 
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0px;
+    font-family: Poppins-Bold;
+    color:#FFF
+}
+
+a {
+    text-decoration: none;
+}
+
+/*---------------------------------------------*/
+/* tudo sobre a bomba da barra a esquerda........... */
+
+/* Barra lateral */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 6.33%; /* Ajuste a largura conforme os tamanhos se alteram*/
+    background: linear-gradient(-135deg, #c42ebc, #1b3bd8);
+    padding: 20px;
+    z-index: 1050; /* Faz a barra lateral ficar sobreposta */
+    display: flex;
+    flex-direction: column;
+
+    /*centralizar div */
+    align-items: center; 
+    justify-content: center; 
+    text-align: center; 
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar li {
+    margin-bottom: 20px; /* Espaçamento entre itens */
+}
+
+.sidebar a {
+    color: white; /* Cor dos links */
+    text-decoration: none;
+    display: block;
+    padding: 10px; /* Adiciona espaçamento interno aos links */
+    border-radius: 5px;
+}
+
+.sidebar a:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Efeito ao passar o mouse */
+}
+
+/* Adicionando um espaçamento ao redor da imagem */
+.sidebar img {
+    margin-bottom: 20px; /* Espaço abaixo da imagem */
+    border-radius: 25%;
+}
+
+/* Conteúdo principal */
+.content {
+    margin-left: 6.33%; /* Ajusta a margem esquerda para a largura da coluna lateral */
+    padding: 20px;
+}
+
+/* Responsividade para mobile */
+@media (max-width: 767.98px) {
+    .sidebar {
+        width: 25%; /* Ajuste para responsividade */
+        position: relative; /* Remove a fixação para dispositivos móveis */
+        z-index: 1040; /* Ajusta o z-index para manter a coluna lateral atrás do conteúdo principal */
+        margin-bottom: 20px; /* Adiciona uma margem inferior para separar da coluna principal quando empilhadas */
+    }
+
+    .content {
+        margin-left: 0; /* Remove a margem esquerda em dispositivos móveis */
+    }
+}
+
+/* fim de tudo sobre a bomba do sidebar........... */
+
+/* tudo sobre os cards..... */
+
+.ag-courses_box {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding: 50px 0;
+}
+
+.ag-courses_item {
+    flex-basis: calc(25% - 30px); /* Ajuste para que ocupem 25% da largura, menos a margem */
+    margin: 0 15px 30px; /* Margem entre os cards */
+    overflow: hidden;
+    border-radius: 28px;
+}
+
+.ag-courses-item_link {
+    display: block;
+    padding: 30px 20px;
+    background-color: #121212;
+    overflow: hidden;
+    position: relative;
+}
+
+.ag-courses-item_link:hover,
+.ag-courses-item_link:hover .ag-courses-item_date {
+    text-decoration: none;
+    color: #FFF;
+}
+
+.ag-courses-item_link:hover .ag-courses-item_bg {
+    transform: scale(10);
+}
+
+.ag-courses-item_title {
+    min-height: 87px;
+    margin: 0 0 25px;
+    overflow: hidden;
+    font-weight: bold;
+    font-size: 30px;
+    color: #FFF;
+    z-index: 2;
+    position: relative;
+}
+
+.ag-courses-item_date-box {
+    font-size: 18px;
+    color: #FFF;
+    z-index: 2;
+    position: relative;
+}
+
+.ag-courses-item_date {
+    font-weight: bold;
+    color: #f9b234;
+    transition: color .5s ease;
+}
+
+.ag-courses-item_bg {
+    height: 128px;
+    width: 128px;
+    background-color: #f9b234;
+    z-index: 1;
+    position: absolute;
+    top: -75px;
+    right: -75px;
+    border-radius: 50%;
+    transition: all .5s ease;
+}
+
+.ag-courses_item:nth-child(2n) .ag-courses-item_bg {
+    background-color: #3ecd5e;
+}
+
+.ag-courses_item:nth-child(3n) .ag-courses-item_bg {
+    background-color: #e44002;
+}
+
+.ag-courses_item:nth-child(4n) .ag-courses-item_bg {
+    background-color: #952aff;
+}
+
+.ag-courses_item:nth-child(5n) .ag-courses-item_bg {
+    background-color: #cd3e94;
+}
+
+.ag-courses_item:nth-child(6n) .ag-courses-item_bg {
+    background-color: #4c49ea;
+}
+
+/* Responsividade para dispositivos médios */
+@media only screen and (max-width: 979px) {
+    .ag-courses_item {
+        flex-basis: calc(50% - 30px); /* Ajuste para dispositivos médios */
+    }
+
+    .ag-courses-item_title {
+        font-size: 24px;
+    }
+}
+
+/* Responsividade para dispositivos menores */
+@media only screen and (max-width: 639px) {
+    .ag-courses_item {
+        flex-basis: calc(100% - 30px); /* Ajuste para dispositivos pequenos */
+    }
+
+    .ag-courses-item_title {
+        min-height: 72px;
+        line-height: 1;
+        font-size: 24px;
+    }
+
+    .ag-courses-item_link {
+        padding: 22px 40px;
+    }
+
+    .ag-courses-item_date-box {
+        font-size: 16px;
+    }
+}
+
+/* fim de tudo sobre os cards............*/
