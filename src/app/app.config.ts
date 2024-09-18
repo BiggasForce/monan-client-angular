@@ -1,9 +1,18 @@
 import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
-
-import { routes } from './app.routes';
+import { provideHttpClient, withFetch } from '@angular/common/http';
 import { provideClientHydration } from '@angular/platform-browser';
+import { routes } from './app.routes';
+import { httpInterceptorProviders } from './helpers/http.interceptor';
+// Importar `provideForms` se necessário para formulários
+//import { provideForms } from '@angular/forms';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes), provideClientHydration()]
+  providers: [
+    provideZoneChangeDetection({ eventCoalescing: true }), 
+    provideRouter(routes), 
+    provideClientHydration(),
+    provideHttpClient(withFetch()),  // Fornece o HttpClient para toda a aplicação
+    httpInterceptorProviders,
+  ]
 };

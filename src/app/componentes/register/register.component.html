@@ -6,7 +6,7 @@
 
     <div class="row w-100">
         <div class="col-12 d-flex flex-column justify-content-center align-items-center">
-            <h3 class="mt-3 text-center" style="margin-bottom:40px; color: aliceblue;">SISTEMA DE EDUCAÇÃO MONAN</h3>
+            <h3 class="mt-3 text-center" style="margin-bottom:40px;">Sistema de Educação Monan</h3>
             <img src="../../../assets/images/logo-monan.jpg" style="border-radius:36%; width:150px;"
                 alt="essa imagem mostra a logo da aplicação Monan">
         </div>
@@ -25,16 +25,16 @@
                     flex-direction: column;
                     justify-content: center;
                     align-items: center;">
-            <h4>Entre com sua Conta</h4>
+            <h4>Registre-se</h4>
             <hr />
             <div class="d-flex flex-column align-items-center w-100">
                 <div class="wrap-input100 mb-3">
                     <input 
-                        id="login" 
+                        id="email-register" 
                         type="email" 
                         class="input100" 
                         placeholder="E-mail"
-                        [(ngModel)]="login"
+                        [(ngModel)]="email"
                         required
                     >
                     <span class="focus-input100"></span>
@@ -45,11 +45,12 @@
 
                 <div class="wrap-input100 mb-3">
                     <input 
-                        id="senha" 
+                        id="password" 
                         type="password" 
                         class="input100" 
                         placeholder="Senha"
                         [(ngModel)]="senha"
+                        required
                     >
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
@@ -57,13 +58,41 @@
                     </span>
                 </div>
 
+                <div class="wrap-input100 mb-3">
+                    <input 
+                        id="nome-register" 
+                        type="text" 
+                        class="input100" 
+                        placeholder="Nome"
+                        [(ngModel)]="nome"
+                        required
+                    >
+                    <span class="focus-input100"></span>
+                    <span class="symbol-input100">
+                        <i class="fa fa-id-badge" aria-hidden="true"></i>
+                    </span>
+                </div>
+
+                <div class="wrap-input100 mb-3">
+                    <input 
+                        id="dataNascimento-register" 
+                        type="date" 
+                        class="input100" 
+                        placeholder="Nascimento"
+                        [(ngModel)]="dataNascimento"
+                        required
+                    >
+                    <span class="focus-input100"></span>
+                    <span class="symbol-input100">
+                        <i class="fa fa-calendar-o" aria-hidden="true"></i>
+                    </span>
+                </div>
+
                 <div class="container-login100-form-btn">
-                    <button id="requestLogin" class="login100-form-btn" (click)="logar()">
-                        Login
+                    <button id="requestRegister" class="login100-form-btn" (click)="registrar()">
+                        Registrar
                     </button>
                 </div>
-                <p class="mt-3 txt1">Esqueceu <a class="txt2" href="" style="text-decoration:none;">Email/Senha?</a></p>
-                <p class="mt-3 txt1">Não possui uma conta? <a class="txt2"  style="text-decoration:none;">Registre-se</a></p>
             </div>
         </div>
     </div>
