@@ -24,39 +24,16 @@
                         <hr />
 
                         <!-- Aqui é um exemplo do card para usar, mudar typescript para exibir a quantidade de materia que o aluno esta matriculado -->
-                        <div class="ag-courses_item">
+                        <div class="ag-courses_item" *ngFor="let disciplina of listaDisciplinas">
                             <a href="#" class="ag-courses-item_link">
                                 <div class="ag-courses-item_bg"></div>
-
                                 
                                 <div class="ag-courses-item_title">
-                                    Português<!-- Provisório, fazer de forma não estática -->
+                                    {{ disciplina.nome }}
                                 </div>
 
                                 <div class="ag-courses-item_date-box">
-                                    Professor:
-                                    <span class="ag-courses-item_date">
-                                        Isandro<!-- Provisório, fazer de forma não estática -->
-                                    </span>
-                                </div>
-                            </a>
-                        </div>
-                        <!-- Fim do card -->
-
-                        <!-- Aqui é um exemplo de card, fazer conforme quantas matérias o aluno está matriculado -->
-                        <div class="ag-courses_item">
-                            <a href="#" class="ag-courses-item_link">
-                                <div class="ag-courses-item_bg"></div>
-
-                                <div class="ag-courses-item_title">
-                                    Matemática<!-- Provisório, fazer de forma não estática -->
-                                </div>
-
-                                <div class="ag-courses-item_date-box">
-                                    Professor:
-                                    <span class="ag-courses-item_date">
-                                        Isandro<!-- Provisório, fazer de forma não estática -->
-                                    </span>
+                                    {{ disciplina.descricao }}
                                 </div>
                             </a>
                         </div>

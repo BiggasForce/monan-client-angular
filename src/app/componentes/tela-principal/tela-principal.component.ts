@@ -4,26 +4,33 @@ import { Router } from '@angular/router';
 import { PLATFORM_ID, Inject } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { AuthService } from '../../services/auth.service';
+import { UserService } from '../../services/user.service';
+import { Disciplina } from '../../models/Disciplina';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-tela-principal',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './tela-principal.component.html',
   styleUrl: './tela-principal.component.css'
 })
 export class TelaPrincipalComponent implements OnInit{
   usuarioAtual: any;
+  public listaDisciplinas: Disciplina[] = [];
 
   constructor(private storageService: StorageService, 
               private authService: AuthService,
               private router: Router,
+              private userService: UserService,
               @Inject(PLATFORM_ID) private platformId: Object
             ) { }
 
   ngOnInit(): void {
     if (this.storageService.isLoggedIn()) {
       this.usuarioAtual = this.storageService.getUser();
+
+      this.buscarDisciplinas();
     }
     else{
       this.router.navigate(['']);
@@ -33,7 +40,9 @@ export class TelaPrincipalComponent implements OnInit{
     }
   }
 
-  logout(): void {
+  //
+  // Método para fazer Logout no sistema
+  public logout(): void {
     this.authService.logout().subscribe({
       next: data => {
         this.storageService.clean();
@@ -46,6 +55,21 @@ export class TelaPrincipalComponent implements OnInit{
         if (isPlatformBrowser(this.platformId)) {
           alert("Erro ao fazer Logout!")
         }
+      }
+    });
+  }
+
+  //
+  //
+  public buscarDisciplinas(){
+    this.userService.getDisciplinas().subscribe({
+      next: dados => {
+        this.listaDisciplinas = dados;
+      },
+      error: err => {
+        // tratar erros        
+        console.log("Erro ao buscar disciplinas: "+err.error.mensagem);
+      
       }
     });
   }

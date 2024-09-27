@@ -1,8 +1,15 @@
+/**
+ * Serviço para se comunicar com os end-points da aplicação que necessitam
+ * de autenticação
+ */
+
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Disciplina } from '../models/Disciplina';
+import { environment } from '../../environments/environment';
 
-const API_URL = 'http://localhost:8080/monan/';
+const API_URL = environment.apiUrl+"monan/";
 
 
 @Injectable({
@@ -11,8 +18,10 @@ const API_URL = 'http://localhost:8080/monan/';
 export class UserService {
   constructor(private http: HttpClient) {}
 
-  getDisciplinas(): Observable<any> {
-    return this.http.get(API_URL + 'disciplinas', { responseType: 'text' });
+  //
+  // alterar método para recuperar somente disciplinas do usuário
+  getDisciplinas(): Observable<Disciplina[]> {
+    return this.http.get<Disciplina[]>(API_URL + 'disciplinas');
   }
 
 }

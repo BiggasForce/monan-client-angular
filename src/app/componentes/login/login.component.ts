@@ -43,10 +43,9 @@ export class LoginComponent implements OnInit{
   }
 
   public logar(): void {
-
     this.authService.login(this.login, this.senha).subscribe({
       next: data => {
-        this.storageService.saveUser(data);
+        this.storageService.saveUser(data.token);
 
         this.isLoginFailed = false;
         this.isLoggedIn = true;

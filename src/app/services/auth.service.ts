@@ -1,15 +1,19 @@
+/**
+ * Serviço responsável pelos métodos de autenticação da página de login
+ */
+
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { catchError, throwError } from 'rxjs';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { StorageService } from './storage.service';
+import { environment } from '../../environments/environment';
 
-const AUTH_API = 'http://localhost:8080/auth/';
+const AUTH_API = environment.apiUrl+"auth/";
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
-
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +21,8 @@ const httpOptions = {
 export class AuthService {
   constructor(private http: HttpClient) {}
 
+  //
+  // envia requisição POST de login
   login(login: string, senha: string): Observable<any> {
     return this.http.post(
       AUTH_API + 'login',
@@ -26,8 +32,10 @@ export class AuthService {
       },
       httpOptions
     );
-}
+  }
 
+  //
+  // envia requisição POST para registrar novo usuário
   register(email: string, senha: string, nome: string, dataNascimento: Date): Observable<any> {
     return this.http.post(
       AUTH_API + 'register',
@@ -41,6 +49,7 @@ export class AuthService {
     );
   }
 
+  // TODO - Implementar metodo de Logout no back-end
   logout(): Observable<any> {
     return this.http.post(AUTH_API + 'logout', { }, httpOptions);
   }
