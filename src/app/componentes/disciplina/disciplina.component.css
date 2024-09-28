@@ -1,0 +1,333 @@
+/*//////////////////////////////////////////////////////////////////
+[ FONT ]*/
+
+@font-face {
+    font-family: Poppins-Regular;
+    src: url('../../../assets/fonts/poppins/Poppins-Regular.ttf');
+}
+
+@font-face {
+    font-family: Poppins-Bold;
+    src: url('../../../assets/fonts/poppins/Poppins-Bold.ttf');
+}
+
+@font-face {
+    font-family: Poppins-Medium;
+    src: url('../../../assets/fonts/poppins/Poppins-Medium.ttf');
+}
+
+@font-face {
+    font-family: Montserrat-Bold;
+    src: url('../../../assets/fonts/montserrat/Montserrat-Bold.ttf');
+}
+body {
+    background-color: #000;
+    color: #fff;
+    margin: 0; 
+    font-family: 'Poppins-Bold', sans-serif; 
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0px;
+    font-family: Poppins-Bold;
+    color:#FFF
+}
+
+a {
+    text-decoration: none;
+}
+
+/*---------------------------------------------*/
+
+
+
+/* Barra lateral */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 6.33%; 
+    background: linear-gradient(-135deg, #c42ebc, #1b3bd8);
+    padding: 20px;
+    z-index: 1050; 
+    display: flex;
+    flex-direction: column;
+
+    /*centralizar div */
+    align-items: center; 
+    justify-content: center; 
+    text-align: center; 
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar li {
+    margin-bottom: 20px;
+}
+
+.sidebar a {
+    color: white; 
+    text-decoration: none;
+    display: block;
+    padding: 10px; 
+    border-radius: 5px;
+}
+
+.sidebar a:hover {
+    background-color: rgba(255, 255, 255, 0.2); 
+}
+
+/* Adicionando um espaçamento ao redor da imagem */
+.sidebar img {
+    margin-bottom: 20px; 
+    border-radius: 25%;
+}
+
+/* Conteúdo principal */
+.content {
+    margin-left: 6.33%; 
+    padding: 20px;
+}
+/* Barra lateral */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 6.33%;
+    background: linear-gradient(-135deg, #c42ebc, #1b3bd8);
+    padding: 20px;
+    z-index: 1050;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.content {
+    margin-left: 6.33%;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; 
+}
+
+.main-content {
+    flex: 1; 
+    background: black;
+    display: flex;
+    flex-direction: column; 
+    gap: 20px; 
+    padding-right: 20px;
+}
+
+.task-card {
+    background-color: #121212;
+    border-radius: 12px;
+    padding: 20px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 15px;
+}
+
+.task-card:hover {
+    background-color: #1c1c1c;
+}
+
+.task-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.task-title {
+    font-family: 'Poppins-Bold', sans-serif;
+    font-size: 24px;
+    margin: 0;
+}
+
+.task-summary {
+    font-family: 'Poppins-Regular', sans-serif;
+    color: #f9b234;
+}
+
+.expand-icon {
+    font-size: 24px;
+    color: #f9b234;
+}
+
+.task-details {
+    display: none; 
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px solid #f9b234;
+    background-color: rgba(0, 0, 0, 0.1); 
+}
+
+.task-details.expanded {
+    display: block; 
+}
+
+/* Coluna "Recados" */
+.right-column {
+    width: 25%;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: #121212;
+    color: #fff;
+    border-radius: 12px;
+}
+
+/* Responsividade para dispositivos móveis */
+@media (max-width: 767.98px) {
+    .sidebar {
+        width: 100%;
+        position: relative;
+        height: auto;
+        z-index: 1040;
+        margin-bottom: 20px;
+    }
+
+    .content {
+        margin-left: 0;
+        flex-direction: column;
+    }
+
+    .right-column {
+        width: 100%; 
+        margin-top: 20px;
+    }
+
+    .main-content {
+        width: 100%;
+        padding-right: 0;
+    }
+}
+
+
+/* Barra lateral */
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 6.33%;
+    background: linear-gradient(-135deg, #c42ebc, #1b3bd8);
+    padding: 20px;
+    z-index: 1050;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.content {
+    margin-left: 6.33%; 
+    padding: 20px;
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-between; 
+}
+
+.main-content {
+    flex: 1; 
+    background: black;
+    display: flex;
+    flex-direction: column; 
+    gap: 20px; 
+    padding-right: 20px;
+}
+
+.task-card {
+    background-color: #121212;
+    border-radius: 12px;
+    padding: 20px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 15px;
+}
+
+.task-card:hover {
+    background-color: #000000;
+}
+
+.task-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.task-title {
+    font-family: 'Poppins-Bold', sans-serif;
+    font-size: 24px;
+    margin: 0;
+}
+
+.task-summary {
+    font-family: 'Poppins-Regular', sans-serif;
+    color: #f9b234;
+}
+
+.expand-icon {
+    font-size: 24px;
+    color: #f9b234;
+}
+
+.task-details {
+    display: none;
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px solid #f9b234;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.task-details.expanded {
+    display: block;
+}
+
+/* Coluna "Recados" */
+.right-column {
+    width: 25%;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: #121212;
+    color: #fff;
+    border-radius: 12px;
+}
+
+/* Responsividade para dispositivos móveis */
+@media (max-width: 767.98px) {
+    .sidebar {
+        width: 100%;
+        position: relative;
+        height: auto;
+        z-index: 1040;
+        margin-bottom: 20px;
+    }
+
+    .content {
+        margin-left: 0;
+        flex-direction: column;
+    }
+
+    .right-column {
+        width: 100%; 
+        margin-top: 20px;
+    }
+
+    .main-content {
+        width: 100%;
+        padding-right: 0;
+    }
+}
