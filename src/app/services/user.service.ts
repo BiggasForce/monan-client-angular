@@ -11,17 +11,17 @@ import { environment } from '../../environments/environment';
 
 const API_URL = environment.apiUrl+"monan/";
 
-
 @Injectable({
   providedIn: 'root'  
 })
 export class UserService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+  }
 
   //
   // alterar método para recuperar somente disciplinas do usuário
   getDisciplinas(): Observable<Disciplina[]> {
-    return this.http.get<Disciplina[]>(API_URL + 'disciplinas');
+    return this.http.get<Disciplina[]>(API_URL + 'disciplinas/'+window.sessionStorage.getItem('auth-user'));
   }
 
 }
