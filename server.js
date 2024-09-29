@@ -1,0 +1,1 @@
+import("./dist/monan/server/server.mjs");
