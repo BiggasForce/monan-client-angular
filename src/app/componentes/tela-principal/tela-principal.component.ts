@@ -6,6 +6,7 @@ import { isPlatformBrowser } from '@angular/common';
 import { AuthService } from '../../services/auth.service';
 import { UserService } from '../../services/user.service';
 import { Disciplina } from '../../models/Disciplina';
+import { Atividade } from '../../models/Atividade';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -18,6 +19,7 @@ import { CommonModule } from '@angular/common';
 export class TelaPrincipalComponent implements OnInit{
   usuarioAtual: any;
   public listaDisciplinas: Disciplina[] = [];
+  public listaAtividades: Atividade[] = [];
 
   constructor(private storageService: StorageService, 
               private authService: AuthService,
@@ -31,6 +33,7 @@ export class TelaPrincipalComponent implements OnInit{
       this.usuarioAtual = this.storageService.getUser();
 
       this.buscarDisciplinas();
+      this.buscarAtividades();
     }
     else{
       this.router.navigate(['']);
@@ -72,5 +75,22 @@ export class TelaPrincipalComponent implements OnInit{
       
       }
     });
+  }
+
+  public buscarAtividades(){
+    this.userService.getAtividades().subscribe({
+      next: dados => {
+        this.listaAtividades = dados;
+      },
+      error: err => {
+        // tratar erros        
+        console.log("Erro ao buscar atividades: "+err.error.mensagem);
+      
+      }
+    });
+  }
+
+  public goToPlanosAula(){
+    this.router.navigate(['monan/planos-aula']);
   }
 }

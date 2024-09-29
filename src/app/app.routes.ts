@@ -9,6 +9,6 @@ export const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'monan', component: TelaPrincipalComponent},
   { path: 'register', component: RegisterComponent},
-  { path: 'course', component: DisciplinaComponent},
-  {path: 'classplan', component: PlanoAulasComponent}
+  { path: 'monan/course', component: DisciplinaComponent},
+  { path: 'monan/planos-aula', component: PlanoAulasComponent}
 ];

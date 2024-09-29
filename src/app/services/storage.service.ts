@@ -50,7 +50,7 @@ export class StorageService {
   public isLoggedIn(): boolean {
     if (isPlatformBrowser(this.platformId)) {
       const user = window.sessionStorage.getItem(USER_KEY);
-      if (user) {
+      if (user != null) {
         return true;
       }
     }

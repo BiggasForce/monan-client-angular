@@ -233,3 +233,24 @@ a {
 }
 
 /* fim de tudo sobre os cards............*/
+
+/* Cards atividaddes*/
+
+.ag-atv-item_bg {
+    height: 128px;
+    width: 128px;
+    background-color: #d9dff0;
+    z-index: 1;
+    position: absolute;
+    top: -75px;
+    right: -75px;
+    border-radius: 50%;
+    transition: all .5s ease;
+}
+
+.ag-atv_item {
+    flex-basis: calc(25% - 30px); /* Ajuste para que ocupem 25% da largura, menos a margem */
+    margin: 0 15px 30px; /* Margem entre os cards */
+    overflow: hidden;
+    border-radius: 28px;
+}

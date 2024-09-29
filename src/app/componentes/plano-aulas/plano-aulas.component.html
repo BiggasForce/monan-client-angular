@@ -6,13 +6,12 @@
                 <li>
                     <img src="../../../assets/images/logo-monan.jpg" style="width: 100px;" alt="essa imagem mostra a logo da aplicação Monan">
                 </li>
-                <li><a href="http://localhost:4200/loguei">Ativas</a></li>
-                <li><a href="">Planos de aulas</a></li>
+                <li><a href="" (click)="goToTelaPrincipal()">Tela inicial</a></li>
                 <li><a href="">Todas as disciplinas</a></li>
                 <li><a href="">Calendário</a></li>
                 <li><a href="">Configurações</a></li>
                 <li><a href="">Ajuda</a></li>
-                <li><button id="btnLogout">Logout</button></li>
+                <li><button class="btn btn-light" id="btnLogout" (click)="logout()">Logout</button></li>
             </ul>
         </div>
 
@@ -20,40 +19,28 @@
         <div class="col-12 col-md-11 content">
             <!-- Coluna principal -->
             <div class="main-content">
-                <h2 style="color:white">Matemática e suas Tecnologias</h2>
+                <h2 style="color:white">Aulas por disciplina</h2>
                 <hr />
 
-                <!-- Card 1 -->
-                <div class="task-card">
+                <div class="task-card" *ngFor="let planoAula of listaPlanosAula">
                     <div class="task-header">
-                        <h3 class="task-title">Tarefa: Redação sobre numeros</h3>
-                        <p class="task-summary">Data de Entrega: 30/09/2024</p>
+                        <h3 class="task-title">{{ planoAula.titulo }}</h3>
+                        <p class="task-summary">Data de Criação: {{ planoAula.dataCriacao }}</p>
                     </div>
                     <div class="task-details expanded">
-                        <p><strong>Descrição:</strong> Escreva uma redação de 500 palavras sobre a historia dos numeros.</p>
-                        <p><strong>Instruções:</strong> A redação deve ser entregue em formato PDF.</p>
+                        <p><strong>Descrição:</strong> {{ planoAula.descricao }} </p>
+                        <p><strong>Disciplina:</strong> {{ planoAula.disciplina.nome }} </p>
                     </div>
                 </div>
 
-                <!-- Card 2 -->
-                <div class="task-card">
-                    <div class="task-header">
-                        <h3 class="task-title">Tarefa: Análise de gráficos</h3>
-                        <p class="task-summary">Data de Entrega: 15/10/2024</p>
-                    </div>
-                    <div class="task-details expanded">
-                        <p><strong>Descrição:</strong> Analise os gráficos apresentados e faça um relatório de 3 páginas.</p>
-                        <p><strong>Instruções:</strong> O relatório deve ser entregue em formato PDF.</p>
-                    </div>
-                </div>
+                
             </div>
 
             <!-- Coluna "Recados" -->
             <div class="right-column">
                 <h2>Recados</h2>
                 <hr />
-                <img src="../../../assets/images/Sem título.png" style="width: 200px;">
-                <p>JESUS TE AMA</p>
+                <p>Nenhum recado pendente</p>
                 <a href="https://www.flaticon.com/br/icones-gratis/biblioteca" title="biblioteca ícones">olhar ícones</a>
             </div>
         </div>

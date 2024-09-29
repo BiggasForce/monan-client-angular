@@ -6,12 +6,12 @@
                 <li>
                     <img src="../../../assets/images/logo-monan.jpg" style="width: 100px;" alt="essa imagem mostra a logo da aplicação Monan">
                 </li>
-                <li><a href="http://localhost:4200/loguei">Ativas</a></li>
-                <li><a href="">Todas as disciplinas</a></li>
+                
+                <li><a (click)="goToPlanosAula()">Plano de Aula</a></li>
                 <li><a href="">Calendário</a></li>
                 <li><a href="">Configurações</a></li>
                 <li><a href="">Ajuda</a></li>
-                <li><button id="btnLogout" (click)="logout()">Logout</button></li>
+                <li><button class="btn btn-light" id="btnLogout" (click)="logout()">Logout</button></li>
             </ul>
         </div>
 
@@ -45,9 +45,21 @@
                 <div class="col-12 col-md-3 " style="padding: 20px;">
                     <h2>Tarefas e Recados</h2>
                     <hr />
-                    <img src="../../../assets/images/Sem título.png" style="width: 200px;">
-                    <p style="color:white">PARABENS VOCE NÃO TEM NENHUMA TAREFA</p>
-                    <a href="https://www.flaticon.com/br/icones-gratis/biblioteca" title="biblioteca ícones">olhar icones</a>
+
+                    <div class="ag-atv_item" *ngFor="let atividade of listaAtividades">
+                        <a href="#" class="ag-courses-item_link">
+                            <div class="ag-atv-item_bg"></div>
+                            
+                            <div class="ag-courses-item_title">
+                                {{ atividade.nome }}
+                            </div>
+
+                            <div class="ag-courses-item_date-box">
+                                
+                            </div>
+                        </a>
+                    </div>
+
                 </div>
             </div>
         </div>
